@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itclinical.challenge1.Input.Input;
+import com.itclinical.challenge1.Services.ChallengeService;
 import com.itclinical.challenge1.Supporters.StringVerificationSupport;
 
 @SpringBootTest
@@ -164,6 +165,8 @@ class Challenge1ApplicationTests {
 
 	@Test
     void test_create_service(){
+		ChallengeService challengeService = new ChallengeService();
+        assertTrue(challengeService.isActive());
     }
 
 
