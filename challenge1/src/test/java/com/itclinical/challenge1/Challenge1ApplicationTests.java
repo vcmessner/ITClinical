@@ -3,8 +3,6 @@ package com.itclinical.challenge1;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Random;
-
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -129,22 +127,54 @@ class Challenge1ApplicationTests {
 		assertTrue(output.equals("\"!CL1N\""));
     }
 
-    @RepeatedTest(1000)
-    void test_Solve_Invalid_Input_Challenge(){
-        /*               TODO 
+    @RepeatedTest(1)
+    void test_Solve_Numeric_Input_Challenges(){
+    	/*               TODO 
             Automate Incorrect input generation 
             All lowercase, Lowercase Alphanum and num inputs
             assert false with the problem solver
             */
+		ChallengeService challengeService = new ChallengeService();
+		String txt = GenStr.Create_Random_Number_String(50, 10);
+		int N=1;
+		Input in = new Input(txt, N);
+		assertTrue(challengeService.SolveCh1(in).equals("\"\""));
+		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
+		//assertFalse(challengeService.SolveCh1(in)=="\"\"");	
     }
 
-    @Test 
-    void test_Solve_Valid_Input_Challenge(){
-        /*               TODO 
-            Automate valid input generation 
-            All upercase, Upercase Alphanum
-            assert true with the problem solver
-            */
+    @RepeatedTest(1000)
+    void test_Solve_LowerCase_Alpha_Input_Challenge(){
+        ChallengeService challengeService = new ChallengeService();
+		String txt = GenStr.Create_Random_Alpha_String(0, 10);
+		int N=1;
+		Input in = new Input(txt, N);
+		assertTrue(challengeService.SolveCh1(in).equals("\"\""));
+		assertTrue(challengeService.SolveCh2(in).equals("\"\""));
+		assertTrue(challengeService.SolveCh3(in).equals("\"\""));
+    }
+
+
+	@RepeatedTest(1000)
+    void test_Solve_UpperCase_Alpha_Input_Challenge(){
+        ChallengeService challengeService = new ChallengeService();
+		String txt = GenStr.Create_Random_Alpha_String(100, 10);
+		int N=1;
+		Input in = new Input(txt, N);
+		assertTrue(challengeService.SolveCh1(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
+    }
+
+	@RepeatedTest(1000)
+    void test_Solve_UpperCase_AlphaNum_Input_Challenge(){
+        ChallengeService challengeService = new ChallengeService();
+		String txt = GenStr.Create_Random_Alpha_String(100, 10);
+		int N=1;
+		Input in = new Input(txt, N);
+		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
     }
 
     @Test 
