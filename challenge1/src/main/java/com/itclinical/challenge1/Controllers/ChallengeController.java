@@ -15,10 +15,24 @@ public class ChallengeController {
     private ChallengeService challengeService;    
     
     @PostMapping(value = "/ch1")
+    public String HandleChallenge1( @RequestBody String request) {
+        Input in = new Input(request);
+        return challengeService.SolveCh1(in);
+    }
+
+    @PostMapping(value = "/ch2")
+    public String HandleChallenge2( @RequestBody String request) {
+        Input in = new Input(request);
+        return challengeService.SolveCh2(in);
+    }
+
+    @PostMapping(value = "/ch3")
     public String HandleChallenge( @RequestBody String request) {
         Input in = new Input(request);
-        return challengeService.Solve(in);
+        return challengeService.SolveCh3(in);
     }
+
+
 
 
 

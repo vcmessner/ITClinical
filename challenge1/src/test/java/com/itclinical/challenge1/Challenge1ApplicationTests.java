@@ -105,11 +105,29 @@ class Challenge1ApplicationTests {
 		ChallengeService challengeService = new ChallengeService();
         String Body ="\"ITCLiNicAl\" and N = 1";
         Input in = new Input(Body);	
-		String output = challengeService.Solve(in);
+		String output = challengeService.SolveCh1(in);
 		assertTrue(output.equals("\"ITCLNA\""));
 
     }
 
+	@Test
+    void test_Challenge2_service(){
+		ChallengeService challengeService = new ChallengeService();
+        String Body ="\"!tCL1Nical\" and N = 1";
+        Input in = new Input(Body);	
+		String output = challengeService.SolveCh2(in);
+		assertTrue(output.equals("\"!CL1N\""));
+    }
+
+
+	@Test
+    void test_Challenge3_service(){
+		ChallengeService challengeService = new ChallengeService();
+        String Body ="\"!tCL1Nical\" and N = 1";
+        Input in = new Input(Body);	
+		String output = challengeService.SolveCh3(in);
+		assertTrue(output.equals("\"!CL1N\""));
+    }
 
     @RepeatedTest(1000)
     void test_Solve_Invalid_Input_Challenge(){
