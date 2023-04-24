@@ -174,7 +174,7 @@ class Challenge1ApplicationTests {
         String Body ="\"ITCLiNicAl\" and N = 1";
         Input in = new Input(Body);	
 		String output = challengeService.Solve(in);
-		assertTrue(output.equals("ITCLiNicAl"));
+		assertTrue(output.equals("\"ITCLNA\""));
 
     }
 
