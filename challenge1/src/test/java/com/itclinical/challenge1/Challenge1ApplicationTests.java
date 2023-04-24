@@ -149,8 +149,7 @@ class Challenge1ApplicationTests {
 		Input in = new Input("\"ITCLiNicAl\" and N = 1");
         assertTrue(in.getText().equals("ITCLiNicAl")); 
 		assertTrue(in.getN()==1);
-		assertTrue(Integer.class.isInstance(in.getN()));
-       
+		assertTrue(Integer.class.isInstance(in.getN())); 
     }
 	
 
@@ -167,6 +166,16 @@ class Challenge1ApplicationTests {
     void test_create_service(){
 		ChallengeService challengeService = new ChallengeService();
         assertTrue(challengeService.isActive());
+    }
+
+	@Test
+    void test_Challenge1_service(){
+		ChallengeService challengeService = new ChallengeService();
+        String Body ="\"ITCLiNicAl\" and N = 1";
+        Input in = new Input(Body);	
+		String output = challengeService.Solve(in);
+		assertTrue(output.equals("ITCLiNicAl"));
+
     }
 
 
