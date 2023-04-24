@@ -17,11 +17,11 @@ import com.itclinical.challenge1.Supporters.StringVerificationSupport;
 @SpringBootTest
 class Challenge1ApplicationTests {
 	StringVerificationSupport verificator = new StringVerificationSupport();
+	StringGenerationSupport GenStr = new StringGenerationSupport();
 
 @RepeatedTest(1000)
     void test_Assert_Number_as_Integer(){
-		StringGenerationSupport GenStr = new StringGenerationSupport();
-		String output = GenStr.create_random_number_String(50,10);
+		String output = GenStr.Create_Random_Number_String(50,10);
 		assertFalse(verificator.Validate_isAlpha(output));
 		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
 		assertFalse(verificator.Validate_isUpperCaseAlpha(output));
@@ -34,24 +34,13 @@ class Challenge1ApplicationTests {
 
 @RepeatedTest(1000)
     void test_Assert_String_as_LowerCaseAlpha(){
-        int probabilidade = 0; // probabilidade de ser maiuscula
-		int tamanho =10;
-		String resp ="";
-		Random ran = new Random();		
-		for(int i=0;i<tamanho;++i){
-			char mychar = (char) ran.nextInt(26); //26 letras [0,26[
-			mychar +=65; // estou na tabela ascii com letra maiuscula
-			if(ran.nextInt(100)+1>probabilidade){ //1 ao 100
-				mychar = Character.toLowerCase(mychar);
-			}
-			resp+=Character.toString(mychar);
-		}
-		assertTrue(verificator.Validate_isAlpha(resp));
-		assertTrue(verificator.Validate_isLowerCaseAlpha(resp));
-		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
-		assertFalse(verificator.Validate_is_Num(resp));
-		assertFalse(verificator.Validate_is_Pos_Num(resp));
-		assertFalse(verificator.Validate_isUpperCaseAlNum(resp));
+        String output = GenStr.Create_Random_Alpha_String(0, 10);
+		assertTrue(verificator.Validate_isAlpha(output));
+		assertTrue(verificator.Validate_isLowerCaseAlpha(output));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(output));
+		assertFalse(verificator.Validate_is_Num(output));
+		assertFalse(verificator.Validate_is_Pos_Num(output));
+		assertFalse(verificator.Validate_isUpperCaseAlNum(output));
 		//assertTrue(verificator.Validate_isLowerCaseAlNum(N));
 		//assertTrue(verificator.Validate_isAlNum(N));
 	}
