@@ -23,7 +23,7 @@ class Challenge1ApplicationTests {
             */
 	}
 
-    @RepeatedTest(100)
+    @RepeatedTest(1000)
     void test_Assert_Number_as_Integer(){
 		int probabilidade =50;
 		int tamanho =10;
@@ -68,7 +68,7 @@ class Challenge1ApplicationTests {
     }
 
 
-	@RepeatedTest(100)
+	@RepeatedTest(1000)
     void test_Assert_String_as_LowerCaseAlpha(){
         int probabilidade = 0; // probabilidade de ser maiuscula
 		int tamanho =10;
@@ -114,9 +114,10 @@ class Challenge1ApplicationTests {
 		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
 		assertFalse(verificator.Validate_isUpperCaseAlNum(resp));
 		assertTrue(verificator.Validate_isLowerCaseAlNum(resp));
+	
 	}
 
-	@RepeatedTest(100)
+	@RepeatedTest(1000)
     void test_Assert_String_as_UpperCaseAlpha(){
 		int probabilidade = 100; // probabilidade de ser maiuscula
 		int tamanho =10;
@@ -147,6 +148,7 @@ class Challenge1ApplicationTests {
 		Input in = new Input("ITCLiNicAl", "1");
         assertTrue(in.getText().equals("ITCLiNicAl")); 
 		assertTrue(in.getN().equals("1"));
+		assertTrue(Integer.class.isInstance(in.getNumber()));
        
     }
 	
