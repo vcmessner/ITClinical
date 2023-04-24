@@ -18,14 +18,7 @@ import com.itclinical.challenge1.Supporters.StringVerificationSupport;
 class Challenge1ApplicationTests {
 	StringVerificationSupport verificator = new StringVerificationSupport();
 
-	 @Test 
-	void test_Send_Input_To_Service(){
-        /*               TODO 
-            Basic communication
-            */
-	}
-
-    @RepeatedTest(1000)
+@RepeatedTest(1000)
     void test_Assert_Number_as_Integer(){
 		StringGenerationSupport GenStr = new StringGenerationSupport();
 		String output = GenStr.create_random_number_String(50,10);
@@ -39,29 +32,7 @@ class Challenge1ApplicationTests {
 		//assertTrue(verificator.Validate_isAlNum(resp));
 	}
 
-    @Test 
-    void test_Assert_N_as_Integer(){
-        /*               TODO 
-            Get Input Parameter N
-        */
-
-		//create a input object
-		//obtem o n do objeto
-		//verifica
-
-		String N="1";
-		assertFalse(verificator.Validate_isAlpha(N));
-		assertFalse(verificator.Validate_isLowerCaseAlpha(N));
-		assertFalse(verificator.Validate_isUpperCaseAlpha(N));
-		assertTrue(verificator.Validate_is_Num(N));
-		assertTrue(verificator.Validate_is_Pos_Num(N));
-		assertTrue(verificator.Validate_isUpperCaseAlNum(N));
-		assertTrue(verificator.Validate_isLowerCaseAlNum(N));
-		assertTrue(verificator.Validate_isAlNum(N));
-    }
-
-
-	@RepeatedTest(1000)
+@RepeatedTest(1000)
     void test_Assert_String_as_LowerCaseAlpha(){
         int probabilidade = 0; // probabilidade de ser maiuscula
 		int tamanho =10;
