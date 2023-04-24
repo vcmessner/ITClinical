@@ -15,6 +15,11 @@ public class Input {
             N=Integer.parseInt(n);
         }
     }
+
+    public Input(String string, int num) {
+        text=string;
+        N = num;
+    }
     
     private String[] getStrValues(String string) {
         String[] Splitted = string.split("\"");
