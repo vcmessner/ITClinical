@@ -145,30 +145,25 @@ class Challenge1ApplicationTests {
             create a Input 
 			asserttrue matching values
     	 */ 
-		Input in = new Input("ITCLiNicAl", "1");
+		Input in = new Input("\"ITCLiNicAl\" and N = 1");
         assertTrue(in.getText().equals("ITCLiNicAl")); 
-		assertTrue(in.getN().equals("1"));
-		assertTrue(Integer.class.isInstance(in.getNumber()));
+		assertTrue(in.getN()==1);
+		assertTrue(Integer.class.isInstance(in.getN()));
        
     }
 	
 
     @Test
     void test_post_request_contents(){
-		/*               TODO 
-            Create the controller
-			create  raw string body  
-			asserttrue matching values
-    	 */          
+		String Body ="\"ITCLiNicAl\" and N = 1";
+        Input in = new Input(Body);		
+        assertTrue(in.getText().equals("ITCLiNicAl"));
+        assertTrue(in.getN()==1);       
     }  
 
 
 	@Test
     void test_create_service(){
-		/*               TODO 
-            create service 
-			check if it is active
-    	 */      
     }
 
 
