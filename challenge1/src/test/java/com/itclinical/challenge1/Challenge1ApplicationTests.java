@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itclinical.challenge1.Input.Input;
 import com.itclinical.challenge1.Services.ChallengeService;
+import com.itclinical.challenge1.Supporters.StringGenerationSupport;
 import com.itclinical.challenge1.Supporters.StringVerificationSupport;
 
 @SpringBootTest
@@ -26,21 +27,12 @@ class Challenge1ApplicationTests {
 
     @RepeatedTest(1000)
     void test_Assert_Number_as_Integer(){
-		int probabilidade =50;
-		int tamanho =10;
-		String resp ="";
-		Random ran = new Random();
-        int mynumber = ran.nextInt(1000);
-		if(ran.nextInt(100)+1>probabilidade){
-			resp+="-";
-		}
-		for(int i=0;i<tamanho;++i){
-        	resp+=Integer.toString(ran.nextInt(10)); //[0,9[		
-		}
-		assertFalse(verificator.Validate_isAlpha(resp));
-		assertFalse(verificator.Validate_isLowerCaseAlpha(resp));
-		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
-		assertTrue(verificator.Validate_is_Num(resp));
+		StringGenerationSupport GenStr = new StringGenerationSupport();
+		String output = GenStr.create_random_number_String(50,10);
+		assertFalse(verificator.Validate_isAlpha(output));
+		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(output));
+		assertTrue(verificator.Validate_is_Num(output));
 		//assertTrue(verificator.Validate_is_Pos_Num(resp));
 		//assertTrue(verificator.Validate_isUpperCaseAlNum(resp));
 		//assertTrue(verificator.Validate_LowerCaseAlNum(resp));
