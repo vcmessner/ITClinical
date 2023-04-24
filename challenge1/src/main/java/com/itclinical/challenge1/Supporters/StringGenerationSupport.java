@@ -30,4 +30,23 @@ public class StringGenerationSupport {
         return output;
     }
 
+    public String Create_Random_AlphaNum_String(int probability, int len){
+		String output ="";
+		Random ran = new Random();		
+		for(int i=0;i<len;++i){
+        	char mychar = (char) ran.nextInt(36); //26 letras [0,26[ +10 [0,9[]
+			if(mychar>25){ // numero
+				output+=Integer.toString(35-mychar);
+			}
+			else{ //letra
+				mychar +=65; // estou na tabela ascii com letra maiuscula
+				if(ran.nextInt(100)+1>probability){
+					mychar = Character.toLowerCase(mychar);
+				}
+				output+=Character.toString(mychar);
+			}    
+		}
+        return output;
+    }
+
 }
