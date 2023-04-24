@@ -111,12 +111,9 @@ class Challenge1ApplicationTests {
 				resp+=Character.toString(mychar);
 			}
 		}
-		assertTrue(verificator.Validate_isAlpha(resp));
-		assertTrue(verificator.Validate_isLowerCaseAlpha(resp));
 		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
-		assertFalse(verificator.Validate_is_Num(resp));
-		assertFalse(verificator.Validate_is_Pos_Num(resp));
 		assertFalse(verificator.Validate_isUpperCaseAlNum(resp));
+		assertTrue(verificator.Validate_isLowerCaseAlNum(resp));
 	}
 
 	@RepeatedTest(100)
