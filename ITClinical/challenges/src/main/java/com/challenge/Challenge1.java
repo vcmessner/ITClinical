@@ -13,7 +13,7 @@ public class Challenge1 {
         return MyText;
     }
 
-    public void setMyText(String myText) {
+    private void setMyText(String myText) {
         MyText = myText;
     }
     
@@ -21,7 +21,7 @@ public class Challenge1 {
         return N;
     }
 
-    public void setN(int n) {
+    private void setN(int n) {
         N = n;
     }
 
