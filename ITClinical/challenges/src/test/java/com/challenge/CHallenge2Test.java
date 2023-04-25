@@ -1,6 +1,5 @@
 package com.challenge;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
@@ -11,10 +10,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import com.challenge.Support.StringGenerationSupport;
-import com.challenge.Support.StringVerificationSupport;
+
 
 public class CHallenge2Test {
-    StringVerificationSupport verificator = new StringVerificationSupport();
+    //StringVerificationSupport verificator = new StringVerificationSupport();
 	StringGenerationSupport GenStr = new StringGenerationSupport();
     
     
