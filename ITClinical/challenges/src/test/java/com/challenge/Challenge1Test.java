@@ -109,6 +109,7 @@ public class Challenge1Test {
 		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output)); 
     }
+
     @RepeatedTest(1000)
     void test_Solve_Numeric_Input_Challenges(){
 		String text = GenStr.Create_Random_Number_String(50, 10);
@@ -117,6 +118,13 @@ public class Challenge1Test {
         assertTrue(myChallenge1.Solve().equals(""));
     }
 
+    @RepeatedTest(1000)
+        void test_Solve_LowerCase_Alpha_Input_Challenge(){
+        String text = GenStr.Create_Random_Alpha_String(0, 1);
+		int N=1;
+        Challenge1 myChallenge1 =new Challenge1(text, N);
+        assertTrue(myChallenge1.Solve().equals(""));
+    }
 
     
 
