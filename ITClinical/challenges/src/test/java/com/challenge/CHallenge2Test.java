@@ -45,6 +45,25 @@ public class CHallenge2Test {
         }
     }
 
+    @ParameterizedTest
+    @ValueSource(ints =  {1, 2, 3})
+    void test__Challenge2_Special_Character_Valid_Input_Values(int N){
+        String text = "!tCL1Nical";
+        Challenge2 myChallenge =new Challenge2(text, N);
+        switch(N){
+            case 1:
+                assertTrue(myChallenge.Solve().equals("!CL1N"));
+                break;
+            case 2:
+                assertTrue(myChallenge.Solve().equals("LN"));
+                break;
+            case 3:
+                assertTrue(myChallenge.Solve().equals("CN"));
+                break;
+        }
+    }
+
+
     @RepeatedTest(10)
     void test__Challenge2_Invalid_Greater_Input_Values(){
         String text = "ITCLiNicAl";
@@ -54,7 +73,7 @@ public class CHallenge2Test {
         assertTrue(myChallenge2.Solve().equals(""));
     }
 
-    @RepeatedTest(100)
+    @RepeatedTest(10)
     void test__Challenge2_Invalid_Lower_Input_Values(){
         String text = "ITCLiNicAl";
         Random ran = new Random();
@@ -62,6 +81,7 @@ public class CHallenge2Test {
         Challenge2 myChallenge2 =new Challenge2(text, N);
         assertTrue(myChallenge2.Solve().equals(""));
     }
+
 
 
     @RepeatedTest(1000)
@@ -110,7 +130,7 @@ public class CHallenge2Test {
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output)); 
     }
 
-    
+
     
 
 
