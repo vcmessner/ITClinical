@@ -126,6 +126,18 @@ public class Challenge1Test {
         assertTrue(myChallenge1.Solve().equals(""));
     }
 
+    @RepeatedTest(1000)
+    void test_Solve_UpperCase_Alpha_Input_Challenge(){
+        String text = GenStr.Create_Random_Alpha_String(100, 1);
+        int N=1;
+        Challenge1 myChallenge1 =new Challenge1(text, N);
+        assertTrue(myChallenge1.Solve().equals(text));
+    }
+
+
+
+
+
     
 
 

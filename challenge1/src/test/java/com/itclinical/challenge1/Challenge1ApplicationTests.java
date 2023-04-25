@@ -191,13 +191,6 @@ class Challenge1ApplicationTests {
             Solve given custom problem inputs 
             assert true with the expected outputs
             */
-    }
-
-
-
-
-
-
-    
+    }   
     
 }
