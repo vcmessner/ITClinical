@@ -14,6 +14,11 @@ public class Challenge4{
        if(value%3==0){
         return "IT";
        }
+       else{
+        if(value%5==0){
+            return "Clinical";
+        }
+       }
        return "";
         
     }
