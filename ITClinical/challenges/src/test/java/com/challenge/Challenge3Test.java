@@ -169,6 +169,7 @@ public class Challenge3Test {
         Challenge3 myChallenge3 =new Challenge3(text, N);
         myChallenge3.Solve();
         String output = "I = 2 C = 2 L = 2 N = 1 A = 1";
+        
         //myChallenge3.Sysoutput();        
         assertTrue(myChallenge3.Solve().equals(text));
 
