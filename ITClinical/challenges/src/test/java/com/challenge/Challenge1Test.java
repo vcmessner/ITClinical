@@ -15,8 +15,8 @@ import com.challenge.Support.StringVerificationSupport;
 
 public class Challenge1Test {
     
-    StringVerificationSupport verificator = new StringVerificationSupport();
-	StringGenerationSupport GenStr = new StringGenerationSupport();
+    private StringVerificationSupport verificator = new StringVerificationSupport();
+	private StringGenerationSupport GenStr = new StringGenerationSupport();
     
     @Test
     void test_input_Challenge(){

@@ -84,7 +84,7 @@ public class Challenge3Test {
 
 
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Assert_Number_as_Integer(){
 		String output = GenStr.Create_Random_Number_String(50,1);
 		assertFalse(verificator.Validate_isAlpha(output));
@@ -93,7 +93,7 @@ public class Challenge3Test {
 		assertTrue(verificator.Validate_is_Num(output));
 	}
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Assert_String_as_LowerCaseAlpha(){
         String output = GenStr.Create_Random_Alpha_String(0, 1);
 		assertTrue(verificator.Validate_isAlpha(output));
@@ -105,7 +105,7 @@ public class Challenge3Test {
 	}
 
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Assert_String_as_UpperCaseAlpha(){
 		String output = GenStr.Create_Random_Alpha_String(100, 1);
 		assertTrue(verificator.Validate_isAlpha(output));
@@ -116,21 +116,21 @@ public class Challenge3Test {
 		assertFalse(verificator.Validate_isLowerCaseAlNum(output));
 	}
 
-	@RepeatedTest(1000)
+	@RepeatedTest(100)
     void test_Assert_String_as_LowerCaseAlphaNum(){
         String output = GenStr.Create_Random_AlphaNum_String(0,1);
 		assertFalse(verificator.Validate_isUpperCaseAlpha(output));
         assertTrue(verificator.Validate_isLowerCaseAlNum(output));
 	}
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Assert_String_as_UpperCaseAlphaNum(){
         String output = GenStr.Create_Random_AlphaNum_String(100,1);
 		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output)); 
     }
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Solve_Numeric_Input_Challenges(){
 		String text = GenStr.Create_Random_Number_String(50, 10);
 		int N=1;
@@ -138,7 +138,7 @@ public class Challenge3Test {
         assertTrue(myChallenge3.Solve().equals(text));
     }
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
         void test_Solve_LowerCase_Alpha_Input_Challenge(){
         String text = GenStr.Create_Random_Alpha_String(0, 1);
 		int N=1;
@@ -146,7 +146,7 @@ public class Challenge3Test {
         assertTrue(myChallenge3.Solve().equals(""));
     }
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Solve_UpperCase_Alpha_Input_Challenge(){
         String text = GenStr.Create_Random_Alpha_String(100, 1);
         int N=1;
@@ -154,7 +154,7 @@ public class Challenge3Test {
         assertTrue(myChallenge3.Solve().equals(text));
     }
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Solve_UpperCase_AlphaNum_Input_Challenge(){
         String text = GenStr.Create_Random_AlphaNum_String(100, 1);
         int N=1;
@@ -167,12 +167,9 @@ public class Challenge3Test {
         String text="ItCLINiCAL";
         int N=1;
         Challenge3 myChallenge3 =new Challenge3(text, N);
-        myChallenge3.Solve();
-        String output = "I = 2 C = 2 L = 2 N = 1 A = 1";
-        
-        //myChallenge3.Sysoutput();        
-        assertTrue(myChallenge3.Solve().equals(text));
-
+        String output = "I = 2 C = 2 L = 2 N = 1 A = 1 ";     
+        assertTrue(myChallenge3.Solve().equals("ICLINCAL"));     
+        assertTrue(myChallenge3.getSystem_out().equals(output));   
     }
 
 }

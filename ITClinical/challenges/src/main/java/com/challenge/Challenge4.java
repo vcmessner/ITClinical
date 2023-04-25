@@ -9,7 +9,7 @@ public class Challenge4{
 
     Para múltiplos de 3 e 5 imprima "ITClinical".*/
 
-    public String[] prefixo= {"","","IT"};
+    private String[] prefixo= {"","","IT"};
   
     String Solve(int value) {
         if(value%3==0 && value%5!=0 ){
