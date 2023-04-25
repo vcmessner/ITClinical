@@ -11,7 +11,7 @@ public class Challenge4{
 
     public String[] prefixo= {"","","IT"};
   
-    public String Solve(int value) {
+    String Solve(int value) {
         if(value%3==0 && value%5!=0 ){
                 return "IT";
             }
@@ -22,22 +22,17 @@ public class Challenge4{
         return (Integer.toString(value));
     }
 
-    void print_result(){
-        for(int i=0;i<101;++i){
-            if(Solve(i).equals("")){
-
+    void print_result(int n){
+        int end=n+1;
+        for(int i=1;i<end;++i){
+            System.out.println(Solve(i));
             }
-            //String[] prefixo= {"","","it"};
-
         }
-    }
-
 
 
     public static void main(String[] args){
-
-		System.out.println("Hello, World! from Challenge4");
-	
+        Challenge4 Instance = new Challenge4();
+        Instance.print_result(100);
 	}
 
 
