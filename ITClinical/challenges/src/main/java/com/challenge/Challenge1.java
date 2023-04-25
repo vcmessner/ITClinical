@@ -27,19 +27,23 @@ public class Challenge1 {
 
 
     public String Solve() {
-       int len = MyText.length();
-       String output="";
-       int pos = N-1; // começando na posição 0
-       char a;
-       while(pos<len){
-           a = MyText.charAt(pos);
-           if(Character.isUpperCase(a))
-           output+=a;
-           pos+=N;
-       }
-       return output;
-
+        int len = MyText.length();
+        String output="";
+        int pos = N-1; // começando na posição 0
+        char a;
+        if(len<N){
+            return output;
+        }
+        else{
+            while(pos<len){
+                a = MyText.charAt(pos);
+                if(Character.isUpperCase(a))
+                output+=a;
+                pos+=N;
+        }
+       return output;       
     }
+}
 
     
 
