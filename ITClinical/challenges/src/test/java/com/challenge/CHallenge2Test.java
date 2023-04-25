@@ -130,9 +130,36 @@ public class CHallenge2Test {
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output)); 
     }
 
+    @RepeatedTest(1000)
+    void test_Solve_Numeric_Input_Challenges(){
+		String text = GenStr.Create_Random_Number_String(50, 10);
+		int N=1;
+        Challenge2 myChallenge2 =new Challenge2(text, N);
+        assertTrue(myChallenge2.Solve().equals(text));
+    }
 
-    
+    @RepeatedTest(1000)
+        void test_Solve_LowerCase_Alpha_Input_Challenge(){
+        String text = GenStr.Create_Random_Alpha_String(0, 1);
+		int N=1;
+        Challenge2 myChallenge2 =new Challenge2(text, N);
+        assertTrue(myChallenge2.Solve().equals(""));
+    }
 
+    @RepeatedTest(1000)
+    void test_Solve_UpperCase_Alpha_Input_Challenge(){
+        String text = GenStr.Create_Random_Alpha_String(100, 1);
+        int N=1;
+        Challenge2 myChallenge2 =new Challenge2(text, N);
+        assertTrue(myChallenge2.Solve().equals(text));
+    }
 
+    @RepeatedTest(1000)
+    void test_Solve_UpperCase_AlphaNum_Input_Challenge(){
+        String text = GenStr.Create_Random_AlphaNum_String(100, 1);
+        int N=1;
+        Challenge2 myChallenge2 =new Challenge2(text, N);
+        assertTrue(myChallenge2.Solve().equals(text));
+    }
 
 }
