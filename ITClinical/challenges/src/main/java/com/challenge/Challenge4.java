@@ -11,8 +11,11 @@ public class Challenge4{
 
   
     public String Solve(int value) {
-        String result = "Challenge4";
-        return result;
+       if(value%3==0){
+        return "IT";
+       }
+       return "";
+        
     }
 
 
