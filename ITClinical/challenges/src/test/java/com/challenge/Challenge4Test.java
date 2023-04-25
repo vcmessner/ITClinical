@@ -33,6 +33,9 @@ class Challenge4Test {
         if(n%5==0 && n%3==0){
             assertTrue(myChallenge4.Solve(n).equals("ITClinical"));
         }
+        if(n%5!=0 && n%3!=0){
+            assertTrue(myChallenge4.Solve(n).equals(n+""));
+        }
 
 
     }

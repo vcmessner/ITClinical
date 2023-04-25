@@ -9,27 +9,33 @@ public class Challenge4{
 
     Para múltiplos de 3 e 5 imprima "ITClinical".*/
 
+    public String[] prefixo= {"","","IT"};
   
     public String Solve(int value) {
-        if(value%3==0 && value%5==0){
-            return "ITClinical";
-        }
-        else{
-            if(value%3==0){
+        if(value%3==0 && value%5!=0 ){
                 return "IT";
             }
-            else{
-                if(value%5==0){
-                return "Clinical";
-                }
+        if(value%5==0){            
+            int contador=((value/5)-1)%3;
+            return (prefixo[contador]+"Clinical");
+        }
+        return (Integer.toString(value));
+    }
+
+    void print_result(){
+        for(int i=0;i<101;++i){
+            if(Solve(i).equals("")){
+
             }
+            //String[] prefixo= {"","","it"};
+
         }
-        return "";
-            
-        }
+    }
+
 
 
     public static void main(String[] args){
+
 		System.out.println("Hello, World! from Challenge4");
 	
 	}
