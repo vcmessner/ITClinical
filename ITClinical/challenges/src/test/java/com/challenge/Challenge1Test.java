@@ -47,6 +47,15 @@ public class Challenge1Test {
         assertTrue(myChallenge1.Solve().equals(""));
     }
 
+    @RepeatedTest(10)
+    void test__Challenge1_Invalid_Lower_Input_Values(){
+        String text = "ITCLiNicAl";
+        Random ran = new Random();
+        int N= -ran.nextInt(text.length());
+        Challenge1 myChallenge1 =new Challenge1(text, N);
+        assertTrue(myChallenge1.Solve().equals(""));
+    }
+
 
 
 

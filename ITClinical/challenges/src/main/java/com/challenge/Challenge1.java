@@ -31,19 +31,24 @@ public class Challenge1 {
         String output="";
         int pos = N-1; // começando na posição 0
         char a;
-        if(len<N){
-            return output;
-        }
+        if(N<1){
+            return output; 
+        }       
         else{
-            while(pos<len){
-                a = MyText.charAt(pos);
-                if(Character.isUpperCase(a))
-                output+=a;
-                pos+=N;
-        }
-       return output;       
+            if(len<N){
+                return output;
+            }
+            else{
+                while(pos<len){
+                    a = MyText.charAt(pos);
+                    if(Character.isUpperCase(a))
+                    output+=a;
+                    pos+=N;
+                }
+                return output;   
+            }
+        }     
     }
-}
 
     
 
