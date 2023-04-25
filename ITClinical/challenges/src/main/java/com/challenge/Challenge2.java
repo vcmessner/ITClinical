@@ -1,7 +1,7 @@
 package com.challenge;
 
 public class Challenge2 {
-    String MyText="";
+     String MyText="";
     int N=0;
     
     public Challenge2(String myText, int n) {
@@ -57,5 +57,5 @@ public class Challenge2 {
 	
 	}
 
-    
+  
 }
