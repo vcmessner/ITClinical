@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itclinical.challenge1.Input.Input;
@@ -71,11 +73,7 @@ class Challenge1ApplicationTests {
 	}
 
     @Test
-    void test_create_input(){ 
-		/*               TODO 
-            create a Input 
-			asserttrue matching values
-    	 */ 
+    void test_create_input(){
 		Input in = new Input("\"ITCLiNicAl\" and N = 1");
         assertTrue(in.getText().equals("ITCLiNicAl")); 
 		assertTrue(in.getN()==1);
@@ -102,8 +100,8 @@ class Challenge1ApplicationTests {
     void test_Challenge1_service(){
 		ChallengeService challengeService = new ChallengeService();
         String Body ="\"ITCLiNicAl\" and N = 1";
-        Input in = new Input(Body);	
-		String output = challengeService.SolveCh1(in);
+        Input in = new Input(Body);		
+		String output = challengeService.solveMychallenge(in, "1");
 		assertTrue(output.equals("\"ITCLNA\""));
 
     }
@@ -113,7 +111,7 @@ class Challenge1ApplicationTests {
 		ChallengeService challengeService = new ChallengeService();
         String Body ="\"!tCL1Nical\" and N = 1";
         Input in = new Input(Body);	
-		String output = challengeService.SolveCh2(in);
+		String output =challengeService.solveMychallenge(in, "2");
 		assertTrue(output.equals("\"!CL1N\""));
     }
 
@@ -123,7 +121,7 @@ class Challenge1ApplicationTests {
 		ChallengeService challengeService = new ChallengeService();
         String Body ="\"!tCL1Nical\" and N = 1";
         Input in = new Input(Body);	
-		String output = challengeService.SolveCh3(in);
+		String output =challengeService.solveMychallenge(in, "3");
 		assertTrue(output.equals("\"!CL1N\""));
     }
 
@@ -138,10 +136,10 @@ class Challenge1ApplicationTests {
 		String txt = GenStr.Create_Random_Number_String(50, 10);
 		int N=1;
 		Input in = new Input(txt, N);
-		assertTrue(challengeService.SolveCh1(in).equals("\"\""));
-		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
-		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
-		//assertFalse(challengeService.SolveCh1(in)=="\"\"");	
+		assertTrue(challengeService.solveMychallenge(in, "1").equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "2").equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "3").equals("\"" + in.getText() + "\""));
+		assertFalse(challengeService.solveMychallenge(in, "1")=="\"\"");	
     }
 
     @RepeatedTest(1000)
@@ -150,9 +148,9 @@ class Challenge1ApplicationTests {
 		String txt = GenStr.Create_Random_Alpha_String(0, 10);
 		int N=1;
 		Input in = new Input(txt, N);
-		assertTrue(challengeService.SolveCh1(in).equals("\"\""));
-		assertTrue(challengeService.SolveCh2(in).equals("\"\""));
-		assertTrue(challengeService.SolveCh3(in).equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "1").equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "2").equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "3").equals("\"\""));
     }
 
 
@@ -162,9 +160,9 @@ class Challenge1ApplicationTests {
 		String txt = GenStr.Create_Random_Alpha_String(100, 10);
 		int N=1;
 		Input in = new Input(txt, N);
-		assertTrue(challengeService.SolveCh1(in).equals("\"" + in.getText() + "\""));
-		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
-		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "1").equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "2").equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "3").equals("\"" + in.getText() + "\""));
     }
 
 	@RepeatedTest(1000)
@@ -173,8 +171,20 @@ class Challenge1ApplicationTests {
 		String txt = GenStr.Create_Random_Alpha_String(100, 10);
 		int N=1;
 		Input in = new Input(txt, N);
-		assertTrue(challengeService.SolveCh2(in).equals("\"" + in.getText() + "\""));
-		assertTrue(challengeService.SolveCh3(in).equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "2").equals("\"" + in.getText() + "\""));
+		assertTrue(challengeService.solveMychallenge(in, "3").equals("\"" + in.getText() + "\""));
+    }
+
+	@ParameterizedTest
+	@ValueSource(ints =  {-1, 0}) // six numbers	
+	void test_Solve_UpperCase_AlphaNum_Input_Challenge(int n){
+        ChallengeService challengeService = new ChallengeService();
+		String txt = GenStr.Create_Random_Alpha_String(100, 10);
+		int N=n;
+		Input in = new Input(txt, N);
+		assertTrue(challengeService.solveMychallenge(in, "1").equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "2").equals("\"\""));
+		assertTrue(challengeService.solveMychallenge(in, "3").equals("\"\""));
     }
 
     @Test 
