@@ -11,17 +11,22 @@ public class Challenge4{
 
   
     public String Solve(int value) {
-       if(value%3==0){
-        return "IT";
-       }
-       else{
-        if(value%5==0){
-            return "Clinical";
+        if(value%3==0 && value%5==0){
+            return "ITClinical";
         }
-       }
-       return "";
-        
-    }
+        else{
+            if(value%3==0){
+                return "IT";
+            }
+            else{
+                if(value%5==0){
+                return "Clinical";
+                }
+            }
+        }
+        return "";
+            
+        }
 
 
     public static void main(String[] args){
