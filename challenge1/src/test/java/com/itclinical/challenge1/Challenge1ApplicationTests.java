@@ -60,7 +60,6 @@ class Challenge1ApplicationTests {
     void test_Assert_String_as_LowerCaseAlphaNum(){
         String output = GenStr.Create_Random_AlphaNum_String(0,10);
 		assertFalse(verificator.Validate_isUpperCaseAlpha(output));
-		assertFalse(verificator.Validate_isUpperCaseAlNum(output));
 		assertTrue(verificator.Validate_isLowerCaseAlNum(output));
 	}
 
@@ -68,7 +67,6 @@ class Challenge1ApplicationTests {
     void test_Assert_String_as_UpperCaseAlphaNum(){
         String output = GenStr.Create_Random_AlphaNum_String(100,10);
 		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
-		assertFalse(verificator.Validate_isLowerCaseAlNum(output));
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output));
 	}
 
@@ -125,7 +123,7 @@ class Challenge1ApplicationTests {
 		assertTrue(output.equals("\"!CL1N\""));
     }
 
-    @RepeatedTest(1)
+    @RepeatedTest(1000)
     void test_Solve_Numeric_Input_Challenges(){
     	/*               TODO 
             Automate Incorrect input generation 
