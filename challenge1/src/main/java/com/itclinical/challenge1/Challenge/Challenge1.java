@@ -22,8 +22,9 @@ public class Challenge1 implements Challenge {
                 char a;
                 while(pos<tamanho){
                     a = texto.charAt(pos);
-                    if(Character.isUpperCase(a))
-                    resp+=a;
+                    if(Character.isUpperCase(a)){
+                        resp+=a;
+                    }
                     pos+=n;
                 }
                 output=resp;

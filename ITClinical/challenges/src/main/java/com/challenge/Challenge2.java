@@ -41,8 +41,9 @@ public class Challenge2 {
             else{
                 while(pos<len){
                     a = MyText.charAt(pos);
-                    if(Character.isUpperCase(a))
-                    output+=a;
+                    if((a<97) || (a>122)){
+                        output+=a;
+                    }
                     pos+=N;
                 }
                 return output;   

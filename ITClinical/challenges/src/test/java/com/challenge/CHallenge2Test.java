@@ -109,5 +109,10 @@ public class CHallenge2Test {
 		assertFalse(verificator.Validate_isLowerCaseAlpha(output));
 		assertTrue(verificator.Validate_isUpperCaseAlNum(output)); 
     }
+
     
+    
+
+
+
 }
